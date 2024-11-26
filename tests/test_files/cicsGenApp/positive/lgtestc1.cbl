@@ -89,7 +89,7 @@
                  EXEC CICS LINK PROGRAM('LGICUS01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
 
                  IF CA-RETURN-CODE > 0
                    GO TO NO-DATA
@@ -107,7 +107,7 @@
                  EXEC CICS SEND MAP ('SSMAPC1')
                            FROM(SSMAPC1O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
              WHEN '2'
@@ -128,9 +128,9 @@
                  EXEC CICS LINK PROGRAM('LGACUS01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
                  IF CA-RETURN-CODE > 0
-                   Exec CICS Syncpoint Rollback End-Exec
+                   Exec CICS Syncpoint Rollback End-Exec.
                    GO TO NO-ADD
                  END-IF
 
@@ -142,7 +142,7 @@
                  EXEC CICS SEND MAP ('SSMAPC1')
                            FROM(SSMAPC1O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
              WHEN '4'
@@ -151,7 +151,7 @@
                  EXEC CICS LINK PROGRAM('LGICUS01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
                  IF CA-RETURN-CODE > 0
                    GO TO NO-DATA
                  END-IF
@@ -168,10 +168,10 @@
                  EXEC CICS SEND MAP ('SSMAPC1')
                            FROM(SSMAPC1O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  EXEC CICS RECEIVE MAP('SSMAPC1')
                            INTO(SSMAPC1I) ASIS
-                           MAPSET('SSMAP') END-EXEC
+                           MAPSET('SSMAP') END-EXEC.
 
                  Move '01UCUS'   To CA-REQUEST-ID
                  Move ENT1CNOI   To CA-CUSTOMER-NUM
@@ -190,7 +190,7 @@
                  EXEC CICS LINK PROGRAM('LGUCUS01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
 
                  IF CA-RETURN-CODE > 0
                    GO TO NO-UPD
@@ -203,7 +203,7 @@
                  EXEC CICS SEND MAP ('SSMAPC1')
                            FROM(SSMAPC1O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
              WHEN OTHER
@@ -216,7 +216,7 @@
                            FROM(SSMAPC1O)
                            MAPSET ('SSMAP')
                            CURSOR
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
            END-EVALUATE.
@@ -239,7 +239,7 @@
                      LENGTH(LENGTH OF MSGEND)
                      ERASE
                      FREEKB
-           END-EXEC
+           END-EXEC.
            EXEC CICS RETURN
            END-EXEC.
 
@@ -249,7 +249,7 @@
            EXEC CICS SEND MAP ('SSMAPC1')
                      MAPSET ('SSMAP')
                      MAPONLY
-           END-EXEC
+           END-EXEC.
 
            EXEC CICS RETURN
                 TRANSID('SSC1')
@@ -298,7 +298,7 @@
                      Into(READ-MSG)
                      Resp(WS-RESP)
                      Next
-                 End-Exec
+                 End-Exec.
                  Add 1 To WS-Item-Count
                  If WS-RESP = DFHRESP(NORMAL) And
                       Read-Msg-Msg(1:13) = 'HIGH CUSTOMER'
@@ -310,7 +310,7 @@
                           Resp(WS-RESP)
                           ReWrite
                           Item(WS-Item-Count)
-                      End-Exec
+                      End-Exec.
                       MOVE 99 To WS-RESP
                  End-If
               End-Perform
@@ -323,7 +323,7 @@
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(20)
-             END-EXEC
+             END-EXEC.
              Move CA-Customer-Num To Write-Msg-Low
              Move CA-Customer-Num To Write-Msg-High
              EXEC CICS WRITEQ TS QUEUE(STSQ-NAME)
@@ -331,13 +331,13 @@
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(23)
-             END-EXEC
+             END-EXEC.
              EXEC CICS WRITEQ TS QUEUE(STSQ-NAME)
                        FROM(WRITE-MSG-H)
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(24)
-             END-EXEC
+             END-EXEC.
            End-If.
 
            EXEC CICS DEQ Resource(STSQ-NAME)

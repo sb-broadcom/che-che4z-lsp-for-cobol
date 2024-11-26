@@ -258,11 +258,11 @@
       ****************************************************************
            MOVE 'GENA'  To TSQpre
            EXEC CICS ASKTIME ABSTIME(WS-ABSTIME)
-           END-EXEC
+           END-EXEC.
            EXEC CICS FORMATTIME ABSTIME(WS-ABSTIME)
                      MMDDYYYY(WS-DATE)
                      TIME(WS-TIME)
-           END-EXEC
+           END-EXEC.
            Perform Tran-Rate-Interval
 
            Exec CICS Query Counter(GENAcount)

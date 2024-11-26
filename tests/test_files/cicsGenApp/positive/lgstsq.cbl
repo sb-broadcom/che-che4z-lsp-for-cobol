@@ -84,7 +84,7 @@
               EXEC CICS RECEIVE INTO(WS-RECV)
                   LENGTH(WS-RECV-LEN)
                   RESP(WS-RESP)
-              END-EXEC
+              END-EXEC.
               MOVE 'R' To WS-FLAG
               MOVE WS-RECV-DATA  TO WRITE-MSG-MSG
               SUBTRACT 5 FROM WS-RECV-LEN

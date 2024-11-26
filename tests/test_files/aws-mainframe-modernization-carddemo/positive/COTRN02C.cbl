@@ -583,7 +583,7 @@
                 KEYLENGTH (LENGTH OF XREF-ACCT-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -616,7 +616,7 @@
                 KEYLENGTH (LENGTH OF XREF-CARD-NUM)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -647,7 +647,7 @@
                 KEYLENGTH (LENGTH OF TRAN-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -680,7 +680,7 @@
                 KEYLENGTH (LENGTH OF TRAN-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -718,7 +718,7 @@
                 KEYLENGTH (LENGTH OF TRAN-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)

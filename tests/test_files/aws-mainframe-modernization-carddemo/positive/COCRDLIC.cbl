@@ -402,7 +402,7 @@
               EXEC CICS XCTL                                                    
                         PROGRAM (LIT-MENUPGM)                                   
                         COMMAREA(CARDDEMO-COMMAREA)                             
-              END-EXEC                                                          
+              END-EXEC.
            END-IF                                                               
       *****************************************************************         
       * If the user did not press PF8, lets reset the last page flag            
@@ -538,7 +538,7 @@
                    EXEC CICS XCTL                                               
                         PROGRAM (CCARD-NEXT-PROG)                               
                         COMMAREA(CARDDEMO-COMMAREA)                             
-                   END-EXEC                                                     
+                   END-EXEC.
       *****************************************************************         
       *        TRANSFER TO CARD UPDATED PROGRAM                                 
       *****************************************************************         
@@ -566,7 +566,7 @@
                    EXEC CICS XCTL                                               
                         PROGRAM (CCARD-NEXT-PROG)                               
                         COMMAREA(CARDDEMO-COMMAREA)                             
-                   END-EXEC                                                     
+                   END-EXEC.
                                                                                 
       *****************************************************************         
                WHEN OTHER                                                       
@@ -616,7 +616,7 @@
                 TRANSID (LIT-THISTRANID)                                        
                 COMMAREA (WS-COMMAREA)                                          
                 LENGTH(LENGTH OF WS-COMMAREA)                                   
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        0000-MAIN-EXIT.                                                          
            EXIT                                                                 
@@ -943,7 +943,7 @@
                           ERASE                                                 
                           RESP(WS-RESP-CD)                                      
                           FREEKB                                                
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        1500-SEND-SCREEN-EXIT.                                                   
            EXIT                                                                 
@@ -964,7 +964,7 @@
                           MAPSET(LIT-THISMAPSET)                                
                           INTO(CCRDLIAI)                                        
                           RESP(WS-RESP-CD)                                      
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            MOVE ACCTSIDI OF CCRDLIAI  TO CC-ACCT-ID                             
            MOVE CARDSIDI OF CCRDLIAI  TO CC-CARD-NUM                            
@@ -1133,7 +1133,7 @@
                 GTEQ                                                            
                 RESP(WS-RESP-CD)                                                
                 RESP2(WS-REAS-CD)                                               
-           END-EXEC                                                             
+           END-EXEC.
       *****************************************************************         
       *    Loop through records and fetch max screen records                    
       *****************************************************************         
@@ -1151,7 +1151,7 @@
                 KEYLENGTH(LENGTH OF WS-CARD-RID-CARDNUM)                        
                 RESP(WS-RESP-CD)                                                
                 RESP2(WS-REAS-CD)                                               
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EVALUATE WS-RESP-CD                                                  
                WHEN DFHRESP(NORMAL)                                             
@@ -1202,7 +1202,7 @@
                         KEYLENGTH(LENGTH OF WS-CARD-RID-CARDNUM)                
                         RESP(WS-RESP-CD)                                        
                         RESP2(WS-REAS-CD)                                       
-                      END-EXEC                                                  
+                      END-EXEC.
                                                                                 
                       EVALUATE WS-RESP-CD                                       
                          WHEN DFHRESP(NORMAL)                                   
@@ -1256,7 +1256,7 @@
            END-PERFORM                                                          
                                                                                 
            EXEC CICS ENDBR FILE(LIT-CARD-FILE)                                  
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        9000-READ-FORWARD-EXIT.                                                  
            EXIT                                                                 
@@ -1277,7 +1277,7 @@
                 GTEQ                                                            
                 RESP(WS-RESP-CD)                                                
                 RESP2(WS-REAS-CD)                                               
-           END-EXEC                                                             
+           END-EXEC.
       *****************************************************************         
       *    Loop through records and fetch max screen records                    
       *****************************************************************         
@@ -1299,7 +1299,7 @@
                 KEYLENGTH(LENGTH OF WS-CARD-RID-CARDNUM)                        
                 RESP(WS-RESP-CD)                                                
                 RESP2(WS-REAS-CD)                                               
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EVALUATE WS-RESP-CD                                                  
                WHEN DFHRESP(NORMAL)                                             
@@ -1327,7 +1327,7 @@
                 KEYLENGTH(LENGTH OF WS-CARD-RID-CARDNUM)                        
                 RESP(WS-RESP-CD)                                                
                 RESP2(WS-REAS-CD)                                               
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EVALUATE WS-RESP-CD                                                  
                WHEN DFHRESP(NORMAL)                                             
@@ -1374,7 +1374,7 @@
        9100-READ-BACKWARDS-EXIT.                                                
            EXEC CICS                                                            
                 ENDBR FILE(LIT-CARD-FILE)                                       
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXIT                                                                 
            .                                                                    
@@ -1425,10 +1425,10 @@
                      LENGTH(LENGTH OF WS-ERROR-MSG)                             
                      ERASE                                                      
                      FREEKB                                                     
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS RETURN                                                     
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        SEND-PLAIN-TEXT-EXIT.                                                    
            EXIT                                                                 
@@ -1444,10 +1444,10 @@
                      LENGTH(LENGTH OF WS-LONG-MSG)                              
                      ERASE                                                      
                      FREEKB                                                     
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS RETURN                                                     
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        SEND-LONG-TEXT-EXIT.                                                     
            EXIT                                                                 

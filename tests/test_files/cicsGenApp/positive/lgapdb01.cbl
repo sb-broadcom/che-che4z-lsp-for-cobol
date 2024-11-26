@@ -165,7 +165,7 @@
            IF EIBCALEN IS EQUAL TO ZERO
                MOVE ' NO COMMAREA RECEIVED' TO EM-VARIABLE
                PERFORM WRITE-ERROR-MESSAGE
-               EXEC CICS ABEND ABCODE('LGCA') NODUMP END-EXEC
+               EXEC CICS ABEND ABCODE('LGCA') NODUMP END-EXEC.
            END-IF
 
       * initialize commarea return code to zero
@@ -206,14 +206,14 @@
              WHEN OTHER
       *        Request is not recognised or supported
                MOVE '99' TO CA-RETURN-CODE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
 
            END-EVALUATE
 
       *    if less set error return code and return to caller
            IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
              MOVE '98' TO CA-RETURN-CODE
-             EXEC CICS RETURN END-EXEC
+             EXEC CICS RETURN END-EXEC.
            END-IF
 
       *----------------------------------------------------------------*
@@ -294,7 +294,7 @@
                          :DB2-BROKERID-INT,
                          :CA-BROKERSREF,
                          :DB2-PAYMENT-INT      )
-           END-EXEC
+           END-EXEC.
 
            Evaluate SQLCODE
 
@@ -304,19 +304,19 @@
              When -530
                MOVE '70' TO CA-RETURN-CODE
                PERFORM WRITE-ERROR-MESSAGE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
 
              When Other
                MOVE '90' TO CA-RETURN-CODE
                PERFORM WRITE-ERROR-MESSAGE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
 
            END-Evaluate.
 
       *    get value of assigned policy number
            EXEC SQL
              SET :DB2-POLICYNUM-INT = IDENTITY_VAL_LOCAL()
-           END-EXEC
+           END-EXEC.
            MOVE DB2-POLICYNUM-INT TO CA-POLICY-NUM
       *    and save in error msg field incase required
            MOVE CA-POLICY-NUM TO EM-POLNUM
@@ -372,7 +372,7 @@
                             :DB2-E-SUMASSURED-INT,
                             :CA-E-LIFE-ASSURED,
                             :WS-VARY-FIELD )
-              END-EXEC
+              END-EXEC.
            ELSE
               EXEC SQL
                 INSERT INTO ENDOWMENT
@@ -392,15 +392,15 @@
                             :DB2-E-TERM-SINT,
                             :DB2-E-SUMASSURED-INT,
                             :CA-E-LIFE-ASSURED )
-              END-EXEC
+              END-EXEC.
            END-IF
 
            IF SQLCODE NOT EQUAL 0
              MOVE '90' TO CA-RETURN-CODE
              PERFORM WRITE-ERROR-MESSAGE
       *      Issue Abend to cause backout of update to Policy table
-             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC
-             EXEC CICS RETURN END-EXEC
+             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC.
+             EXEC CICS RETURN END-EXEC.
            END-IF.
 
            EXIT.
@@ -431,14 +431,14 @@
                          :CA-H-HOUSE-NAME,
                          :CA-H-HOUSE-NUMBER,
                          :CA-H-POSTCODE      )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE NOT EQUAL 0
              MOVE '90' TO CA-RETURN-CODE
              PERFORM WRITE-ERROR-MESSAGE
       *      Issue Abend to cause backout of update to Policy table
-             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC
-             EXEC CICS RETURN END-EXEC
+             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC.
+             EXEC CICS RETURN END-EXEC.
            END-IF.
 
            EXIT.
@@ -477,14 +477,14 @@
                          :CA-M-MANUFACTURED,
                          :DB2-M-PREMIUM-INT,
                          :DB2-M-ACCIDENTS-INT )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE NOT EQUAL 0
              MOVE '90' TO CA-RETURN-CODE
              PERFORM WRITE-ERROR-MESSAGE
       *      Issue Abend to cause backout of update to Policy table
-             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC
-             EXEC CICS RETURN END-EXEC
+             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC.
+             EXEC CICS RETURN END-EXEC.
            END-IF.
 
            EXIT.
@@ -551,14 +551,14 @@
                          :DB2-B-Status-Int,
                          :CA-B-RejectReason
                                              )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE NOT EQUAL 0
              MOVE '90' TO CA-RETURN-CODE
              PERFORM WRITE-ERROR-MESSAGE
       *      Issue Abend to cause backout of update to Policy table
-             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC
-             EXEC CICS RETURN END-EXEC
+             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC.
+             EXEC CICS RETURN END-EXEC.
            END-IF.
 
            EXIT.
@@ -592,7 +592,7 @@
                          :CA-C-Cause,
                          :CA-C-Observations
                                              )
-           END-EXEC
+           END-EXEC.
 
            Move DB2-C-Num-Int    To CA-C-Num
 
@@ -600,8 +600,8 @@
              MOVE '90' TO CA-RETURN-CODE
              PERFORM WRITE-ERROR-MESSAGE
       *      Issue Abend to cause backout of update to Policy table
-             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC
-             EXEC CICS RETURN END-EXEC
+             EXEC CICS ABEND ABCODE('LGSQ') NODUMP END-EXEC.
+             EXEC CICS RETURN END-EXEC.
            END-IF.
 
            EXIT.
@@ -616,11 +616,11 @@
            MOVE SQLCODE TO EM-SQLRC
       * Obtain and format current time and date
            EXEC CICS ASKTIME ABSTIME(ABS-TIME)
-           END-EXEC
+           END-EXEC.
            EXEC CICS FORMATTIME ABSTIME(ABS-TIME)
                      MMDDYYYY(DATE1)
                      TIME(TIME1)
-           END-EXEC
+           END-EXEC.
            MOVE DATE1 TO EM-DATE
            MOVE TIME1 TO EM-TIME
       * Write output message to TDQ
@@ -635,13 +635,13 @@
                EXEC CICS LINK PROGRAM('LGSTSQ')
                          COMMAREA(CA-ERROR-MSG)
                          LENGTH(LENGTH OF CA-ERROR-MSG)
-               END-EXEC
+               END-EXEC.
              ELSE
                MOVE DFHCOMMAREA(1:90) TO CA-DATA
                EXEC CICS LINK PROGRAM('LGSTSQ')
                          COMMAREA(CA-ERROR-MSG)
                          LENGTH(LENGTH OF CA-ERROR-MSG)
-               END-EXEC
+               END-EXEC.
              END-IF
            END-IF.
            EXIT.

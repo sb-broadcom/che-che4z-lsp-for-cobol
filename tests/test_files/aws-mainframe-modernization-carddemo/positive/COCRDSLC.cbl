@@ -249,7 +249,7 @@
                                                                                 
            EXEC CICS HANDLE ABEND                                               
                      LABEL(ABEND-ROUTINE)                                       
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            INITIALIZE CC-WORK-AREA                                              
                       WS-MISC-STORAGE                                           
@@ -331,7 +331,7 @@
                    EXEC CICS XCTL                                               
                              PROGRAM (CDEMO-TO-PROGRAM)                         
                              COMMAREA(CARDDEMO-COMMAREA)                        
-                   END-EXEC                                                     
+                   END-EXEC.
       ******************************************************************        
       *            COMING FROM CREDIT CARD LIST SCREEN                          
       *            SELECTION CRITERIA ALREADY VALIDATED                         
@@ -403,7 +403,7 @@
                 TRANSID (LIT-THISTRANID)                                        
                 COMMAREA (WS-COMMAREA)                                          
                 LENGTH(LENGTH OF WS-COMMAREA)                                   
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        0000-MAIN-EXIT.                                                          
            EXIT                                                                 
@@ -573,7 +573,7 @@
                           ERASE                                                 
                           FREEKB                                                
                           RESP(WS-RESP-CD)                                      
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        1400-SEND-SCREEN-EXIT.                                                   
            EXIT                                                                 
@@ -599,7 +599,7 @@
                      INTO(CCRDSLAI)                                             
                      RESP(WS-RESP-CD)                                           
                      RESP2(WS-REAS-CD)                                          
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
                                                                                 
        2100-RECEIVE-MAP-EXIT.                                                   
@@ -747,7 +747,7 @@
                 LENGTH    (LENGTH OF CARD-RECORD)                               
                 RESP      (WS-RESP-CD)                                          
                 RESP2     (WS-REAS-CD)                                          
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EVALUATE WS-RESP-CD                                                  
                WHEN DFHRESP(NORMAL)                                             
@@ -788,7 +788,7 @@
                 LENGTH    (LENGTH OF CARD-RECORD)                               
                 RESP      (WS-RESP-CD)                                          
                 RESP2     (WS-REAS-CD)                                          
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EVALUATE WS-RESP-CD                                                  
                WHEN DFHRESP(NORMAL)                                             
@@ -823,10 +823,10 @@
                      LENGTH(LENGTH OF WS-LONG-MSG)                              
                      ERASE                                                      
                      FREEKB                                                     
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS RETURN                                                     
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        SEND-LONG-TEXT-EXIT.                                                     
            EXIT                                                                 
@@ -841,10 +841,10 @@
                      LENGTH(LENGTH OF WS-RETURN-MSG)                            
                      ERASE                                                      
                      FREEKB                                                     
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS RETURN                                                     
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        SEND-PLAIN-TEXT-EXIT.                                                    
            EXIT                                                                 
@@ -866,15 +866,15 @@
                             FROM (ABEND-DATA)                                   
                             LENGTH(LENGTH OF ABEND-DATA)                        
                             NOHANDLE                                            
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS HANDLE ABEND                                               
                 CANCEL                                                          
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS ABEND                                                      
                 ABCODE('9999')                                                  
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
                                                                                 
                                                                                 

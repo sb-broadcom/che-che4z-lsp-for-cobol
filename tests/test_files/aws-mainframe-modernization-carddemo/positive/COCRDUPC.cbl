@@ -369,7 +369,7 @@
                                                                                 
            EXEC CICS HANDLE ABEND                                               
                      LABEL(ABEND-ROUTINE)                                       
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            INITIALIZE CC-WORK-AREA                                              
                       WS-MISC-STORAGE                                           
@@ -468,12 +468,12 @@
                                                                                 
                    EXEC CICS                                                    
                         SYNCPOINT                                               
-                   END-EXEC                                                     
+                   END-EXEC.
       *                                                                         
                    EXEC CICS XCTL                                               
                         PROGRAM (CDEMO-TO-PROGRAM)                              
                         COMMAREA(CARDDEMO-COMMAREA)                             
-                   END-EXEC                                                     
+                   END-EXEC.
       ******************************************************************        
       *       USER CAME FROM CREDIT CARD LIST SCREEN                            
       *            SO WE ALREADY HAVE THE FILTER KEYS                           
@@ -555,7 +555,7 @@
                 TRANSID (LIT-THISTRANID)                                        
                 COMMAREA (WS-COMMAREA)                                          
                 LENGTH(LENGTH OF WS-COMMAREA)                                   
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        0000-MAIN-EXIT.                                                          
            EXIT                                                                 
@@ -581,7 +581,7 @@
                      INTO(CCRDUPAI)                                             
                      RESP(WS-RESP-CD)                                           
                      RESP2(WS-REAS-CD)                                          
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            INITIALIZE CCUP-NEW-DETAILS                                          
                                                                                 
@@ -1333,7 +1333,7 @@
                           ERASE                                                 
                           FREEKB                                                
                           RESP(WS-RESP-CD)                                      
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        3400-SEND-SCREEN-EXIT.                                                   
            EXIT                                                                 
@@ -1387,7 +1387,7 @@
                 LENGTH    (LENGTH OF CARD-RECORD)                               
                 RESP      (WS-RESP-CD)                                          
                 RESP2     (WS-REAS-CD)                                          
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EVALUATE WS-RESP-CD                                                  
                WHEN DFHRESP(NORMAL)                                             
@@ -1433,7 +1433,7 @@
                 LENGTH    (LENGTH OF CARD-RECORD)                               
                 RESP      (WS-RESP-CD)                                          
                 RESP2     (WS-REAS-CD)                                          
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
       *****************************************************************         
       *    Could we lock the record ?                                           
@@ -1541,15 +1541,15 @@
                             LENGTH(LENGTH OF ABEND-DATA)                        
                             NOHANDLE                                            
                             ERASE                                               
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS HANDLE ABEND                                               
                 CANCEL                                                          
-           END-EXEC                                                             
+           END-EXEC.
                                                                                 
            EXEC CICS ABEND                                                      
                 ABCODE('9999')                                                  
-           END-EXEC                                                             
+           END-EXEC.
            .                                                                    
        ABEND-ROUTINE-EXIT.                                                      
            EXIT                                                                 

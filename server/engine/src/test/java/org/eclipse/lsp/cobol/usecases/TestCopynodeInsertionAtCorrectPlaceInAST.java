@@ -44,7 +44,7 @@ public class TestCopynodeInsertionAtCorrectPlaceInAST {
           + "       {#*HANDLE-ABEND}.";
 
   public static final String COPYBOOK_CONTENT =
-      "             EXEC CICS HANDLE ABEND LABEL({#HANDLE-ABEND}) END-EXEC";
+      "             EXEC CICS HANDLE ABEND LABEL({#HANDLE-ABEND}) END-EXEC.";
 
   @Test
   void test() {

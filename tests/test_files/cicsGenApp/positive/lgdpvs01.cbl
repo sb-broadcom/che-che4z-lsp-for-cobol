@@ -87,7 +87,7 @@
              Move EIBRESP2 To WS-RESP2
              MOVE '81' TO CA-RETURN-CODE
              PERFORM WRITE-ERROR-MESSAGE
-             EXEC CICS RETURN END-EXEC
+             EXEC CICS RETURN END-EXEC.
            End-If.
 
       *---------------------------------------------------------------*
@@ -98,11 +98,11 @@
       *---------------------------------------------------------------*
        WRITE-ERROR-MESSAGE.
            EXEC CICS ASKTIME ABSTIME(WS-ABSTIME)
-           END-EXEC
+           END-EXEC.
            EXEC CICS FORMATTIME ABSTIME(WS-ABSTIME)
                      MMDDYYYY(WS-DATE)
                      TIME(WS-TIME)
-           END-EXEC
+           END-EXEC.
       *
            MOVE WS-DATE TO EM-DATE
            MOVE WS-TIME TO EM-TIME
@@ -119,13 +119,13 @@
                EXEC CICS LINK PROGRAM('LGSTSQ')
                          COMMAREA(CA-ERROR-MSG)
                          LENGTH(Length Of CA-ERROR-MSG)
-               END-EXEC
+               END-EXEC.
              ELSE
                MOVE DFHCOMMAREA(1:90) TO CA-DATA
                EXEC CICS LINK PROGRAM('LGSTSQ')
                          COMMAREA(CA-ERROR-MSG)
                          LENGTH(Length Of CA-ERROR-MSG)
-               END-EXEC
+               END-EXEC.
              END-IF
            END-IF.
            EXIT.

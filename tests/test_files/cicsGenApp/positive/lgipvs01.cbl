@@ -116,7 +116,7 @@
               EXEC CICS RECEIVE INTO(WS-RECV)
                   LENGTH(WS-RECV-LEN)
                   RESP(WS-RESP)
-              END-EXEC
+              END-EXEC.
               MOVE 'R' To WS-FLAG
               MOVE WS-RECV-DATA  TO WS-COMMAREA
               SUBTRACT 6 FROM WS-RECV-LEN
@@ -151,7 +151,7 @@
               ERASE
               LENGTH(80)
               FREEKB
-             END-EXEC
+             END-EXEC.
            Else
              Move Spaces          To COMMA-Data
              Move Write-Msg-Text  To COMMA-Data-Text

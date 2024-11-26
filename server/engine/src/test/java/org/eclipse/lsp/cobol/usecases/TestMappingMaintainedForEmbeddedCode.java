@@ -80,7 +80,7 @@ public class TestMappingMaintainedForEmbeddedCode {
           + "       ENVIRONMENT DIVISION.\n"
           + "       DATA DIVISION.\n"
           + "       WORKING-STORAGE SECTION.\n"
-          + "           EXEC SQL END DECLARE SECTION END-EXEC\n"
+          + "           EXEC SQL END DECLARE SECTION END-EXEC.\n"
           + "       PROCEDURE DIVISION.\n"
           + "           DISPLAY '-------------------------------------' .\n"
           + "           EXEC SQL WHENEVER SQLERROR  {PERFORM|1} ERROR-RTN  END-EXEC.\n"

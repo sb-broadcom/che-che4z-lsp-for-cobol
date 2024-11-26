@@ -70,7 +70,7 @@
                  EXEC CICS LINK PROGRAM('LGIPOL01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
                  IF CA-RETURN-CODE > 0
                    GO TO NO-DATA
                  END-IF
@@ -86,7 +86,7 @@
                  EXEC CICS SEND MAP ('SSMAPP3')
                            FROM(SSMAPP3O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
              WHEN '2'
@@ -106,9 +106,9 @@
                  EXEC CICS LINK PROGRAM('LGAPOL01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
                  IF CA-RETURN-CODE > 0
-                   Exec CICS Syncpoint Rollback End-Exec
+                   Exec CICS Syncpoint Rollback End-Exec.
                    GO TO NO-ADD
                  END-IF
                  Move CA-CUSTOMER-NUM To ENP3CNOI
@@ -119,7 +119,7 @@
                  EXEC CICS SEND MAP ('SSMAPP3')
                            FROM(SSMAPP3O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
              WHEN '3'
@@ -129,9 +129,9 @@
                  EXEC CICS LINK PROGRAM('LGDPOL01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
                  IF CA-RETURN-CODE > 0
-                   Exec CICS Syncpoint Rollback End-Exec
+                   Exec CICS Syncpoint Rollback End-Exec.
                    GO TO NO-DELETE
                  END-IF
 
@@ -149,7 +149,7 @@
                  EXEC CICS SEND MAP ('SSMAPP3')
                            FROM(SSMAPP3O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
              WHEN '4'
@@ -159,7 +159,7 @@
                  EXEC CICS LINK PROGRAM('LGIPOL01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
                  IF CA-RETURN-CODE > 0
                    GO TO NO-DATA
                  END-IF
@@ -175,10 +175,10 @@
                  EXEC CICS SEND MAP ('SSMAPP3')
                            FROM(SSMAPP3O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
                  EXEC CICS RECEIVE MAP('SSMAPP3')
                            INTO(SSMAPP3I)
-                           MAPSET('SSMAP') END-EXEC
+                           MAPSET('SSMAP') END-EXEC.
 
                  Move '01UHOU'          To CA-REQUEST-ID
                  Move ENP3CNOI          To CA-CUSTOMER-NUM
@@ -196,7 +196,7 @@
                  EXEC CICS LINK PROGRAM('LGUPOL01')
                            COMMAREA(COMM-AREA)
                            LENGTH(32500)
-                 END-EXEC
+                 END-EXEC.
                  IF CA-RETURN-CODE > 0
                    GO TO NO-UPD
                  END-IF
@@ -209,7 +209,7 @@
                  EXEC CICS SEND MAP ('SSMAPP3')
                            FROM(SSMAPP3O)
                            MAPSET ('SSMAP')
-                 END-EXEC
+                 END-EXEC.
 
                  GO TO ENDIT-STARTIT
 
@@ -224,7 +224,7 @@
                            FROM(SSMAPP3O)
                            MAPSET ('SSMAP')
                            CURSOR
-                 END-EXEC
+                 END-EXEC.
                  GO TO ENDIT-STARTIT
 
            END-EVALUATE.
@@ -247,7 +247,7 @@
                      LENGTH(LENGTH OF MSGEND)
                      ERASE
                      FREEKB
-           END-EXEC
+           END-EXEC.
            EXEC CICS RETURN
            END-EXEC.
 
@@ -257,7 +257,7 @@
            EXEC CICS SEND MAP ('SSMAPP3')
                      MAPSET ('SSMAP')
                      MAPONLY
-           END-EXEC
+           END-EXEC.
 
            EXEC CICS RETURN
                 TRANSID('SSP3')

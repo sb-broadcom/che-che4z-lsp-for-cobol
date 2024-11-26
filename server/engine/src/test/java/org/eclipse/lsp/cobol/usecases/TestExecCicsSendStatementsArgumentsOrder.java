@@ -75,7 +75,7 @@ class TestExecCicsSendStatementsArgumentsOrder {
           + "                   CURSOR\n"
           + "                   FREEKB\n"
           + "                   ERASE\n"
-          + "               END-EXEC\n"
+          + "               END-EXEC.\n"
           + "           ELSE\n"
           + "               EXEC CICS SEND\n"
           + "                   MAP('BADDB2')\n"

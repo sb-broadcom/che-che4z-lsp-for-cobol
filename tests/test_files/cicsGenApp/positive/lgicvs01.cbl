@@ -114,7 +114,7 @@
               EXEC CICS RECEIVE INTO(WS-RECV)
                   LENGTH(WS-RECV-LEN)
                   RESP(WS-RESP)
-              END-EXEC
+              END-EXEC.
               MOVE 'R' To WS-FLAG
               MOVE WS-RECV-DATA  TO WS-COMMAREA
               SUBTRACT 5 FROM WS-RECV-LEN
@@ -141,7 +141,7 @@
                      Into(READ-MSG)
                      Resp(WS-RESP)
                      Next
-                 End-Exec
+                 End-Exec.
                  If WS-RESP = DFHRESP(NORMAL) And
                       Read-Msg-Msg(1:12) = 'LOW CUSTOMER'
                       Move READ-CUST-LOW to WS-Cust-Low
@@ -165,7 +165,7 @@
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(20)
-             END-EXEC
+             END-EXEC.
            End-If.
       *
            If WS-FLAG-TSQL = 'Y'
@@ -174,7 +174,7 @@
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(23)
-             END-EXEC
+             END-EXEC.
            End-If.
       *
            If WS-FLAG-TSQH = 'Y'
@@ -183,7 +183,7 @@
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(24)
-             END-EXEC
+             END-EXEC.
            End-If.
 
            EXEC CICS DEQ Resource(STSQ-NAME)
@@ -214,7 +214,7 @@
               ERASE
               LENGTH(24)
               FREEKB
-             END-EXEC
+             END-EXEC.
            Else
              Move Spaces To COMMA-Data
              Move Write-Msg-H    To COMMA-Data-H

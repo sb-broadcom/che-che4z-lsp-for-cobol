@@ -192,7 +192,7 @@
                         EXEC CICS
                             XCTL PROGRAM(CDEMO-TO-PROGRAM)
                             COMMAREA(CARDDEMO-COMMAREA)
-                        END-EXEC
+                        END-EXEC.
                    WHEN OTHER
       *                SET TRANSACT-EOF TO TRUE
                        MOVE
@@ -537,7 +537,7 @@
                          FROM(COTRN0AO)
                          ERASE
                          CURSOR
-               END-EXEC
+               END-EXEC.
            ELSE
                EXEC CICS SEND
                          MAP('COTRN0A')
@@ -545,7 +545,7 @@
                          FROM(COTRN0AO)
       *                  ERASE
                          CURSOR
-               END-EXEC
+               END-EXEC.
            END-IF.
 
       *----------------------------------------------------------------*

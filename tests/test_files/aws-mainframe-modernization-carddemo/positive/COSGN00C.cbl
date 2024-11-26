@@ -197,7 +197,7 @@
 
            EXEC CICS ASSIGN
                APPLID(APPLIDO OF COSGN0AO)
-           END-EXEC
+           END-EXEC.
 
            EXEC CICS ASSIGN
                SYSID(SYSIDO OF COSGN0AO)
@@ -231,12 +231,12 @@
                             EXEC CICS XCTL
                               PROGRAM ('COADM01C')
                               COMMAREA(CARDDEMO-COMMAREA)
-                            END-EXEC
+                            END-EXEC.
                        ELSE
                             EXEC CICS XCTL
                               PROGRAM ('COMEN01C')
                               COMMAREA(CARDDEMO-COMMAREA)
-                            END-EXEC
+                            END-EXEC.
                        END-IF
                    ELSE
                        MOVE 'Wrong Password. Try again ...' TO

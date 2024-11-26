@@ -290,7 +290,7 @@
              IF EIBCALEN IS EQUAL TO ZERO
                MOVE ' NO COMMAREA RECEIVED' TO EM-VARIABLE
                PERFORM WRITE-ERROR-MESSAGE
-               EXEC CICS ABEND ABCODE('LGCA') NODUMP END-EXEC
+               EXEC CICS ABEND ABCODE('LGCA') NODUMP END-EXEC.
              END-IF
 
       * initialize commarea return code to zero
@@ -414,7 +414,7 @@
                         :DB2-CUSTOMERNUM-INT             AND
                      POLICY.POLICYNUMBER =
                         :DB2-POLICYNUM-INT               )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE = 0
       *      Select was successful
@@ -438,7 +438,7 @@
       *        set error return code and return to caller
              IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
                MOVE '98' TO CA-RETURN-CODE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
              ELSE
       *        Length is sufficent so move data to commarea
       *        Move Integer fields to required length numerics
@@ -522,7 +522,7 @@
                         :DB2-CUSTOMERNUM-INT             AND
                      POLICY.POLICYNUMBER =
                         :DB2-POLICYNUM-INT               )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE = 0
       *      Select was successful
@@ -535,7 +535,7 @@
       *        set error return code and return to caller
              IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
                MOVE '98' TO CA-RETURN-CODE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
              ELSE
       *        Length is sufficent so move data to commarea
       *        Move Integer fields to required length numerics
@@ -616,7 +616,7 @@
                         :DB2-CUSTOMERNUM-INT             AND
                      POLICY.POLICYNUMBER =
                         :DB2-POLICYNUM-INT               )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE = 0
       *      Select was successful
@@ -629,7 +629,7 @@
       *        set error return code and return to caller
              IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
                MOVE '98' TO CA-RETURN-CODE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
              ELSE
       *        Length is sufficent so move data to commarea
       *        Move Integer fields to required length numerics
@@ -724,7 +724,7 @@
                         :DB2-CUSTOMERNUM-INT             AND
                      POLICY.POLICYNUMBER =
                         :DB2-POLICYNUM-INT               )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE = 0
       *      Select was successful
@@ -737,7 +737,7 @@
       *        set error return code and return to caller
              IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
                MOVE '98' TO CA-RETURN-CODE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
              ELSE
                MOVE DB2-B-FirePeril-Int      TO DB2-B-FirePeril
                MOVE DB2-B-FirePremium-Int    TO DB2-B-FirePremium
@@ -828,7 +828,7 @@
                         COmmercial.POLICYNUMBER   AND
                      POLICY.POLICYNUMBER =
                         :DB2-POLICYNUM-INT               )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE = 0
       *      Select was successful
@@ -841,7 +841,7 @@
       *        set error return code and return to caller
              IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
                MOVE '98' TO CA-RETURN-CODE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
              ELSE
                MOVE DB2-CustomerNum-Int      TO CA-Customer-Num
                MOVE DB2-B-FirePeril-Int      TO DB2-B-FirePeril
@@ -957,7 +957,7 @@
                    :DB2-B-WeatherPremium-Int,
                    :DB2-B-Status-Int,
                    :DB2-B-RejectReason
-           END-EXEC
+           END-EXEC.
 
            If SQLCODE = 0
              MOVE DB2-B-FirePeril-Int      TO DB2-B-FirePeril
@@ -1040,7 +1040,7 @@
                    :DB2-B-WeatherPremium-Int,
                    :DB2-B-Status-Int,
                    :DB2-B-RejectReason
-           END-EXEC
+           END-EXEC.
 
            If SQLCODE = 0
              MOVE DB2-B-FirePeril-Int      TO DB2-B-FirePeril
@@ -1092,7 +1092,7 @@
                         CLAIM.POLICYNUMBER   AND
                      CLAIM.ClaimNumber =
                         :DB2-ClaimNum-INT             )
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE = 0
       *      Select was successful
@@ -1105,7 +1105,7 @@
       *        set error return code and return to caller
              IF EIBCALEN IS LESS THAN WS-REQUIRED-CA-LEN
                MOVE '98' TO CA-RETURN-CODE
-               EXEC CICS RETURN END-EXEC
+               EXEC CICS RETURN END-EXEC.
              ELSE
                MOVE DB2-Customernum-int      TO CA-CUSTOMER-NUM
                MOVE DB2-PolicyNum-int        TO CA-POLICY-NUM
@@ -1180,7 +1180,7 @@
                    :DB2-C-Value-Int,
                    :DB2-C-Cause,
                    :DB2-C-Observations
-           END-EXEC
+           END-EXEC.
 
            IF SQLCODE = 0
                MOVE DB2-Customernum-int  TO CA-CUSTOMER-NUM
@@ -1206,11 +1206,11 @@
            MOVE SQLCODE TO EM-SQLRC
       * Obtain and format current time and date
            EXEC CICS ASKTIME ABSTIME(ABS-TIME)
-           END-EXEC
+           END-EXEC.
            EXEC CICS FORMATTIME ABSTIME(ABS-TIME)
                      MMDDYYYY(DATE1)
                      TIME(TIME1)
-           END-EXEC
+           END-EXEC.
            MOVE DATE1 TO EM-DATE
            MOVE TIME1 TO EM-TIME
       * Write output message to TDQ
@@ -1225,13 +1225,13 @@
                EXEC CICS LINK PROGRAM('LGSTSQ')
                          COMMAREA(CA-ERROR-MSG)
                          LENGTH(LENGTH OF CA-ERROR-MSG)
-               END-EXEC
+               END-EXEC.
              ELSE
                MOVE DFHCOMMAREA(1:90) TO CA-DATA
                EXEC CICS LINK PROGRAM('LGSTSQ')
                          COMMAREA(CA-ERROR-MSG)
                          LENGTH(LENGTH OF CA-ERROR-MSG)
-               END-EXEC
+               END-EXEC.
              END-IF
            END-IF.
            EXIT.

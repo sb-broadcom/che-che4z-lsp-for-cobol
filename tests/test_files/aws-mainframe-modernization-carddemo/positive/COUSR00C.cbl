@@ -196,7 +196,7 @@
                         EXEC CICS
                             XCTL PROGRAM(CDEMO-TO-PROGRAM)
                             COMMAREA(CARDDEMO-COMMAREA)
-                        END-EXEC
+                        END-EXEC.
                    WHEN 'D'
                    WHEN 'd'
                         MOVE 'COUSR03C'   TO CDEMO-TO-PROGRAM
@@ -206,7 +206,7 @@
                         EXEC CICS
                             XCTL PROGRAM(CDEMO-TO-PROGRAM)
                             COMMAREA(CARDDEMO-COMMAREA)
-                        END-EXEC
+                        END-EXEC.
                    WHEN OTHER
                        MOVE
                        'Invalid selection. Valid values are U and D' TO
@@ -532,7 +532,7 @@
                          FROM(COUSR0AO)
                          ERASE
                          CURSOR
-               END-EXEC
+               END-EXEC.
            ELSE
                EXEC CICS SEND
                          MAP('COUSR0A')
@@ -540,7 +540,7 @@
                          FROM(COUSR0AO)
       *                  ERASE
                          CURSOR
-               END-EXEC
+               END-EXEC.
            END-IF.
 
       *----------------------------------------------------------------*

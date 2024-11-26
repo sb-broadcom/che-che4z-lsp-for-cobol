@@ -42,7 +42,7 @@ public class TestCicsLinkExciStatementToleration {
           + "                    APPLID({$WW-HOST-APPLID})    \n"
           + "                    RETCODE({$WW-RETCODE})      \n"
           + "                    SYNCONRETURN         \n"
-          + "                 END-EXEC .       \n";
+          + "                 END-EXEC.        \n";
 
   @Test
   void test() {

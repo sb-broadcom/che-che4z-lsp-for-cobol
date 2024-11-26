@@ -250,7 +250,7 @@
 
            EXEC CICS ASKTIME
              ABSTIME(WS-ABS-TIME)
-           END-EXEC
+           END-EXEC.
 
            EXEC CICS FORMATTIME
              ABSTIME(WS-ABS-TIME)
@@ -258,7 +258,7 @@
              DATESEP('-')
              TIME(WS-CUR-TIME-X08)
              TIMESEP(':')
-           END-EXEC
+           END-EXEC.
 
            INITIALIZE WS-TIMESTAMP
            MOVE WS-CUR-DATE-X10 TO WS-TIMESTAMP(01:10)
@@ -351,7 +351,7 @@
                 UPDATE
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -382,7 +382,7 @@
                 LENGTH    (LENGTH OF ACCOUNT-RECORD)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -415,7 +415,7 @@
                 KEYLENGTH (LENGTH OF XREF-ACCT-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -446,7 +446,7 @@
                 KEYLENGTH (LENGTH OF TRAN-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -479,7 +479,7 @@
                 KEYLENGTH (LENGTH OF TRAN-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)
@@ -517,7 +517,7 @@
                 KEYLENGTH (LENGTH OF TRAN-ID)
                 RESP      (WS-RESP-CD)
                 RESP2     (WS-REAS-CD)
-           END-EXEC
+           END-EXEC.
 
            EVALUATE WS-RESP-CD
                WHEN DFHRESP(NORMAL)

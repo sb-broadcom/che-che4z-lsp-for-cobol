@@ -128,7 +128,7 @@
            EXEC CICS RECEIVE INTO(WS-RECV)
                LENGTH(WS-RECV-LEN)
                RESP(WS-RESP)
-           END-EXEC
+           END-EXEC.
            If WS-RECV-LEN > 5
              Subtract 5 From WS-RECV-LEN
              Move WS-RECV-DATA(1:WS-RECV-LEN)  To LastCustNum
@@ -159,21 +159,21 @@
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(20)
-             END-EXEC
+             END-EXEC.
 
              EXEC CICS WRITEQ TS QUEUE(STSQ-NAME)
                        FROM(WRITE-MSG-L)
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(23)
-             END-EXEC
+             END-EXEC.
 
              EXEC CICS WRITEQ TS QUEUE(STSQ-NAME)
                        FROM(WRITE-MSG-H)
                        RESP(WS-RESP)
                        NOSUSPEND
                        LENGTH(24)
-             END-EXEC
+             END-EXEC.
       *
       **************************************************
            Exec CICS Delete Counter(GENAcount)
@@ -522,7 +522,7 @@
               ERASE
               LENGTH(24)
               FREEKB
-             END-EXEC
+             END-EXEC.
 
            EXEC CICS RETURN
            END-EXEC.

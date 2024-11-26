@@ -152,7 +152,7 @@
                    EXEC CICS
                        XCTL PROGRAM(CDEMO-MENU-OPT-PGMNAME(WS-OPTION))
                        COMMAREA(CARDDEMO-COMMAREA)
-                   END-EXEC
+                   END-EXEC.
                END-IF
                MOVE SPACES             TO WS-MESSAGE
                MOVE DFHGREEN           TO ERRMSGC  OF COMEN1AO

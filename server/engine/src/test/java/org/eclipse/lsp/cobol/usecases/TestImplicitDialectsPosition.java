@@ -33,7 +33,7 @@ class TestImplicitDialectsPosition {
       + "       PROCEDURE DIVISION.\n"
       + "           IF 2 > 1 THEN\n"
       + "             EXEC CICS HANDLE ABEND LABEL({#HANDLE-ABEND})\n"
-      + "             END-EXEC\n"
+      + "             END-EXEC.\n"
       + "             GO TO {#HANDLE-ABEND}\n"
       + "           END-IF.\n"
       + "       {#*HANDLE-ABEND}.\n";
@@ -48,7 +48,7 @@ class TestImplicitDialectsPosition {
       + "           END-IF.\n"
       + "       {#*HANDLE-ABEND}.\n";
 
-  private static final String COPY1 = "             EXEC CICS HANDLE ABEND LABEL({#HANDLE-ABEND}) END-EXEC\n";
+  private static final String COPY1 = "             EXEC CICS HANDLE ABEND LABEL({#HANDLE-ABEND}) END-EXEC.\n";
 
   @Test
   void test() {

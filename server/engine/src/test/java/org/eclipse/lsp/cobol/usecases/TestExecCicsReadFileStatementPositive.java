@@ -61,7 +61,7 @@ class TestExecCicsReadFileStatementPositive {
           + "                   RESP({$RESPONSE})  END-EXEC.\n"
           + "       {#*REW-FILEA}.\n"
           + "              EXEC CICS REWRITE FILE('FILEA') FROM({$FILEA})\n"
-          + "                        RESP({$RESPONSE}) END-EXEC\n"
+          + "                        RESP({$RESPONSE}) END-EXEC.\n"
           + "              IF {$RESP} NOT = DFHRESP(NORMAL)\n"
           + "                  THEN MOVE {$RESP} TO {$RCODE}\n"
           + "                       GO TO {#UPD-FILEA-EXIT}\n"

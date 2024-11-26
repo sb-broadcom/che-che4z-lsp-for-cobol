@@ -566,7 +566,7 @@
                          FROM(CORPT0AO)
                          ERASE
                          CURSOR
-               END-EXEC
+               END-EXEC.
            ELSE
                EXEC CICS SEND
                          MAP('CORPT0A')
@@ -574,7 +574,7 @@
                          FROM(CORPT0AO)
       *                  ERASE
                          CURSOR
-               END-EXEC
+               END-EXEC.
            END-IF.
 
            GO TO RETURN-TO-CICS.

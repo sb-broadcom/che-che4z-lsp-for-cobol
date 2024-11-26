@@ -91,7 +91,7 @@
              Move WS-Data-RC   To  GENAType
            Else
              IF EIBCALEN IS EQUAL TO ZERO
-                 EXEC CICS RETURN END-EXEC
+                 EXEC CICS RETURN END-EXEC.
              Else
                Move CA-REQUEST-ID  To GENAcounter
                Move CA-RETURN-CODE To GENAtype
@@ -105,18 +105,18 @@
            End-Exec.
            If WS-RESP     = DFHRESP(QIDERR) Then
              EXEC CICS ASKTIME ABSTIME(WS-ABSTIME)
-             END-EXEC
+             END-EXEC.
              EXEC CICS FORMATTIME ABSTIME(WS-ABSTIME)
                        DDMMYYYY(WS-DATE)
                        TIME(WS-TIME)
-             END-EXEC
+             END-EXEC.
              Move WS-Date To WS-area-D
              Move WS-Time To WS-area-T
              Exec Cics WriteQ TS Queue(WS-Qname)
                        From(WS-Qarea)
                        Length(Length of WS-Qarea)
                        Resp(WS-RESP)
-             End-Exec
+             End-Exec.
            End-if
       *
            If GENAcounter = '02ACUS'
@@ -130,7 +130,7 @@
                              Pool(GENApool)
                              Value(Trancount)
                              Resp(WS-RESP)
-               End-Exec
+               End-Exec.
 
            EXEC CICS RETURN END-EXEC.
 
