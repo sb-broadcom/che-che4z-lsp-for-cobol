@@ -136,6 +136,9 @@ public class CICSOptionsCheckUtility {
         CICSWriteOptionsCheckUtility.RULE_INDEX,
         new CICSWriteOptionsCheckUtility(context, errors));
     optionsMap.put(
+        CICSRetrieveOptionsCheckUtility.RULE_INDEX,
+        new CICSRetrieveOptionsCheckUtility(context, errors));
+    optionsMap.put(
         CICSInvokeOptionsCheckUtility.RULE_INDEX,
         new CICSInvokeOptionsCheckUtility(context, errors));
     optionsMap.put(
