@@ -268,6 +268,9 @@ public class CICSOptionsCheckUtility {
         CICSInquireSPOptionsCheckUtility.RULE_INDEX,
         new CICSInquireSPOptionsCheckUtility(context, errors));
     spOptionsMap.put(
+        CICSAcquireTerminalOptionsCheckUtility.RULE_INDEX,
+        new CICSAcquireTerminalOptionsCheckUtility(context, errors));
+    spOptionsMap.put(
         CICSDiscardOptionsUtility.RULE_INDEX,
         new CICSDiscardOptionsUtility(context, errors));
     spOptionsMap.put(
