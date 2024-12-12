@@ -115,6 +115,9 @@ public class CICSOptionsCheckUtility {
         CICSGetOptionsCheckUtility.RULE_INDEX,
         new CICSGetOptionsCheckUtility(context, errors));
     optionsMap.put(
+        CICSFreeMainOptionsCheckUtility.RULE_INDEX,
+        new CICSFreeMainOptionsCheckUtility(context, errors));
+    optionsMap.put(
         CICSAddressOptionsCheckUtility.RULE_INDEX,
         new CICSAddressOptionsCheckUtility(context, errors));
     optionsMap.put(
