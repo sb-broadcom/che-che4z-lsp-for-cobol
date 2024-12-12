@@ -328,7 +328,8 @@ cics_enq: ENQ cics_enq_opts;
 cics_enq_opts:(RESOURCE cics_data_area | LENGTH cics_data_value | UOW | TASK | MAXLIFETIME cics_cvda | NOSUSPEND | cics_handle_response)+;
 
 /** ENTER TRACENUM */
-cics_enter: ENTER (TRACENUM cics_data_value | FROM cics_data_area | FROMLENGTH cics_data_area | RESOURCE cics_name | EXCEPTION | cics_handle_response)+;
+cics_enter: ENTER cics_enter_opts;
+cics_enter_opts:(TRACENUM cics_data_value | FROM cics_data_area | FROMLENGTH cics_data_area | RESOURCE cics_name | EXCEPTION | cics_handle_response)+;
 
 /** EXTRACT (all of them) */
 cics_extract: EXTRACT (cics_extract_attach | cics_extract_attributes | cics_extract_certificate | cics_extract_logonmessage | cics_extract_process | cics_extract_tcpip | cics_extract_tct | cics_extract_web_server | cics_extract_web_client);

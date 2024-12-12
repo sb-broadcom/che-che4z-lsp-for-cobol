@@ -109,6 +109,9 @@ public class CICSOptionsCheckUtility {
         CICSForceOptionsCheckUtility.RULE_INDEX,
         new CICSForceOptionsCheckUtility(context, errors));
     optionsMap.put(
+       CICSEnterTracenumOptionsCheckUtility.RULE_INDEX,
+       new CICSEnterTracenumOptionsCheckUtility(context, errors));
+    optionsMap.put(
         CICSDumpTransactionOptionsCheckUtility.RULE_INDEX,
         new CICSDumpTransactionOptionsCheckUtility(context, errors));
     optionsMap.put(
