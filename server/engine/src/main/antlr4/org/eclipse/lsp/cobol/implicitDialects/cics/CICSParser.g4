@@ -22,7 +22,7 @@ allCicsRule: cics_send | cics_receive | cics_add | cics_address | cics_allocate 
                        cics_build | cics_cancel | cics_change  | cics_check | cics_connect | cics_converttime |
                        cics_define | cics_delay | cics_delete | cics_deleteq | cics_deq | cics_document | cics_dump | cics_endbr |
                        cics_endbrowse | cics_enq | cics_enter | cics_extract | cics_force | cics_formattime | cics_free |
-                       cics_freemain | cics_get | cics_getmain | cics_getnext | cics_handle | cics_ignore | cics_inquire |
+                       cics_freemain | cics_get | cics_getmain | cics_getmain64 | cics_getnext | cics_handle | cics_ignore | cics_inquire |
                        cics_invoke | cics_issue | cics_link | cics_load | cics_monitor | cics_move | cics_point | cics_pop |
                        cics_post | cics_purge | cics_push | cics_put | cics_query | cics_read | cics_readnext_readprev |
                        cics_readq | cics_release | cics_remove | cics_reset | cics_resetbr | cics_resume | cics_retrieve |
@@ -374,7 +374,10 @@ cics_get_counter_dcounter: ((COUNTER | DCOUNTER | POOL) cics_name | VALUE cics_d
 
 /** GETMAIN */
 cics_getmain: GETMAIN (SET cics_ref | FLENGTH cics_data_value | BELOW | LENGTH cics_data_value | INITIMG cics_data_value |
-              SHARED | NOSUSPEND | USERDATAKEY | CICSDATAKEY | cics_handle_response)+;
+              EXECUTABLE | SHARED | NOSUSPEND | USERDATAKEY | CICSDATAKEY | cics_handle_response)+;
+cics_getmain64: GETMAIN64 (SET cics_ref | FLENGTH cics_data_value | LOCATION cics_cvda |
+                  EXECUTABLE | SHARED | NOSUSPEND | USERDATAKEY | CICSDATAKEY | cics_handle_response)+;
+
 
 /** GETNEXT ACTIVITY / CONTAINER / EVENT / PROCESS */
 cics_getnext: GETNEXT (cics_getnext_activity | cics_getnext_container | cics_getnext_event | cics_getnext_process);
@@ -926,11 +929,11 @@ cicsLexerDefinedVariableUsageTokens: ABCODE | ABDUMP | ABEND | ABORT | ABPROGRAM
     | DOCDELETE | DOCSIZE | DOCSTATUS | DOCTOKEN | DOCUMENT | DS3270 | DSSCS | DUMP | DUMPCODE | DUMPID | DUPREC
     | ECADDR | ECBLIST | EIB | ELEMNAME | ELEMNAMELEN | ELEMNS | ELEMNSLEN | ENDACTIVITY | ENDBR | ENDBROWSE | ENDFILE
     | ENDOUTPUT | ENQ | ENTRYNAME | EOC | EODS | EPRFIELD | EPRFROM | EPRINTO | EPRLENGTH | EPRSET | EPRTYPE | ERASE
-    | ERASEAUP | ERRTERM | ERRORMSG | ERRORMSGLEN | ESMREASON | ESMRESP | EVENT | EVENTTYPE | EVENTUAL | EWASUPP | EXPECT | EXPIRYTIME | EXTDS
-    | EXTRACT | EXACTMATCH | FACILITY | FACILITYTOKN | FAULTACTLEN | FAULTACTOR | FAULTCODE | FAULTCODELEN | FAULTCODESTR
+    | ERASEAUP | ERRTERM | ERRORMSG | ERRORMSGLEN | ESMREASON | ESMRESP | EVENT | EVENTTYPE | EVENTUAL | EWASUPP | EXECUTABLE | EXPECT | EXPIRYTIME
+    | EXTDS | EXTRACT | EXACTMATCH | FACILITY | FACILITYTOKN | FAULTACTLEN | FAULTACTOR | FAULTCODE | FAULTCODELEN | FAULTCODESTR
     | FAULTSTRING | FAULTSTRLEN | FCI | FCT | FIELD | FIRESTATUS | FLENGTH | FMH | FMHPARM | FORCE | FORMATTIME
     | FORMFEED | FORMFIELD | FREEKB | FREEMAIN | FREEMAIN64 | FROMACTIVITY | FROMCCSID | FROMCHANNEL | FROMCODEPAGE | FROMDOC
-    | FROMFLENGTH | FROMLENGTH | FROMPROCESS | FRSET | FULLDATE | GCHARS | GCODES | GDS | GENERIC | GET | GETMAIN
+    | FROMFLENGTH | FROMLENGTH | FROMPROCESS | FRSET | FULLDATE | GCHARS | GCODES | GDS | GENERIC | GET | GETMAIN | GETMAIN64
     | GETNEXT | GMEXITOPT | GMMI | GROUPID | GTEQ | HANDLE | HEAD | HEADER | HEX | HIGH_VALUE | HIGH_VALUES | HILIGHT | HOLD
     | HONEOM | HOST | HOSTCODEPAGE | HOSTLENGTH | HOSTTYPE | HOURS | HTTPHEADER | HTTPMETHOD | HTTPRNUM | HTTPVERSION
     | HTTPVNUM | IGNORE | IMMEDIATE | INCREMENT | INITIMG | INITPARM | INITPARMLEN | INPARTN | INPUTEVENT | INPUTMSG
