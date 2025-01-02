@@ -622,7 +622,8 @@ cics_load: LOAD cics_load_options;
 cics_load_options: (PROGRAM cics_name | (SET |  ENTRY) cics_ref | (LENGTH | FLENGTH) cics_data_area | HOLD | cics_handle_response)+;
 
 /** MONITOR */
-cics_monitor: MONITOR (POINT cics_data_value | DATA1 cics_data_area | DATA2 cics_data_area | ENTRYNAME cics_data_area | cics_handle_response)+;
+cics_monitor: MONITOR cics_monitor_options;
+cics_monitor_options: (POINT cics_data_value | (DATA1 | DATA2 | ENTRYNAME) cics_data_area | cics_handle_response)+;
 
 /** MOVE CONTAINER (both) */
 cics_move: MOVE ((CONTAINER | FROMACTIVITY | TOACTIVITY | AS | CHANNEL | TOCHANNEL) cics_data_value | FROMPROCESS |
