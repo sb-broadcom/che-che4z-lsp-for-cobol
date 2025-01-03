@@ -640,7 +640,8 @@ cics_point: POINT cics_point_options;
 cics_point_options: ((CONVID | SESSION) cics_name | cics_handle_response)*;
 
 /** POP HANDLE */
-cics_pop: POP cics_handle_response? HANDLE cics_handle_response?;
+cics_pop: POP cics_pop_option;
+cics_pop_option: (HANDLE | cics_handle_response)*;
 
 /** POST */
 cics_post: POST (INTERVAL cics_zero_digit | INTERVAL cics_hhmmss | TIME cics_hhmmss | cics_post_after | SET cics_ref
