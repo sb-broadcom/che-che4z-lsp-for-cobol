@@ -691,7 +691,8 @@ cics_release: RELEASE cics_release_option;
 cics_release_option: (PROGRAM cics_name | cics_handle_response)+;
 
 /** REMOVE SUBEVENT */
-cics_remove: REMOVE (SUBEVENT cics_data_value | EVENT cics_data_value | cics_handle_response)+;
+cics_remove: REMOVE cics_remove_option;
+cics_remove_option: ((SUBEVENT | EVENT) cics_data_value | cics_handle_response)+;
 
 /** RESET ACQPROCESS / RESET ACTIVITY */
 cics_reset: RESET (cics_reset_acqprocess | cics_reset_activity);
