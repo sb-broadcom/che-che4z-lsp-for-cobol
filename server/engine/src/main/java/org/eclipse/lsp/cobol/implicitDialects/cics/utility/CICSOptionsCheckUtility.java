@@ -232,6 +232,9 @@ public class CICSOptionsCheckUtility {
         CICSRemoveOptionsCheckUtility.RULE_INDEX,
         new CICSRemoveOptionsCheckUtility(context, errors));
     optionsMap.put(
+        CICSSpoolcloseOptionsCheckUtility.RULE_INDEX,
+        new CICSSpoolcloseOptionsCheckUtility(context, errors));
+    optionsMap.put(
         CICSSpoolreadOptionsCheckUtility.RULE_INDEX,
         new CICSSpoolreadOptionsCheckUtility(context, errors));
     spOptionsMap.put(
