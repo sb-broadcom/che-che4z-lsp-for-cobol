@@ -223,6 +223,9 @@ public class CICSOptionsCheckUtility {
         CICSPopHandleOptionsCheckUtility.RULE_INDEX,
         new CICSPopHandleOptionsCheckUtility(context, errors));
     optionsMap.put(
+        CICSRewindCounterOptionsCheckUtility.RULE_INDEX,
+        new CICSRewindCounterOptionsCheckUtility(context, errors));
+    optionsMap.put(
         CICSReleaseOptionsCheckUtility.RULE_INDEX,
         new CICSReleaseOptionsCheckUtility(context, errors));
     optionsMap.put(
