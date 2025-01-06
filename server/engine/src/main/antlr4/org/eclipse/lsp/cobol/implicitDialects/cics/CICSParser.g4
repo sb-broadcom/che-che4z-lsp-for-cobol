@@ -38,7 +38,7 @@ allExciRules: cics_exci_link | cics_exci_delete | cics_exci_delete_container | c
               cics_exci_get_container | cics_exci_get_next_container | cics_exci_move_container |
               cics_exci_put_container | cics_exci_query_channel | cics_exci_startbrowse_container ;
 
-allSPRules: cics_disable | cics_discard | cics_extract_system_programming | cics_inquire_system_programming | cics_create;
+allSPRules: cics_disable | cics_discard | cics_enable | cics_extract_system_programming | cics_inquire_system_programming | cics_create;
 
 // compiler options
 compilerOpts
@@ -347,6 +347,13 @@ cics_dump: DUMP TRANSACTION (DUMPCODE cics_name | cics_dump_transaction_from  | 
 cics_dump_transaction_from: (FROM cics_data_area | cics_length_flength | cics_handle_response)+;
 cics_dump_code_opts: (COMPLETE | TRT | TASK | STORAGE | PROGRAM | TERMINAL | TABLES | FCT | PCT | PPT | SIT | TCT | DUMPID cics_data_area | cics_handle_response)+;
 cics_dump_transaction_segmentlist: ((SEGMENTLIST | LENGTHLIST | NUMSEGMENTS) cics_data_area | cics_handle_response)+;
+
+/** ENABLE PROGRAM */
+cics_enable: ENABLE cics_enable_program;
+cics_enable_program: ((PROGRAM | ENTRYNAME | EXIT | GALENGTH | GAENTRYNAME | TALENGTH) cics_data_value |
+                     ENTRY cics_ref | FORMATEDF | GALOCATION cics_cvda | GAEXECUTABLE | INDOUBTWAIT | LINKEDITMODE |
+                     QUASIRENT | THREADSAFE | OPENAPI | REQUIRED | PURGEABLE | SHUTDOWN | SPI | START | TAEXECUTABLE |
+                     TASKSTART | cics_handle_response)+;
 
 /** ENDBR / ENDBROWSE */
 cics_endbr: ENDBR cics_endbr_opts;
@@ -1618,6 +1625,7 @@ ABCODE
   | EM
   | EMITMODE
   | EMPTYSTATUS
+  | ENABLE
   | ENABLEDCOUNT
   | ENABLESTATUS
   | ENCRYPTKEY
@@ -1763,7 +1771,9 @@ ABCODE
   | FWDRECOVLSN
   | FWDRECSTATUS
   | GAENTRYNAME
+  | GAEXECUTABLE
   | GALENGTH
+  | GALOCATION
   | GARBAGEINT
   | GASET
   | GAUSECOUNT
@@ -1969,6 +1979,7 @@ ABCODE
   | LINKABEND
   | LINKAGE
   | LINKAUTH
+  | LINKEDITMODE
   | LINKLEVEL
   | LINKSYSNET
   | LINKSYSTEM
@@ -2203,6 +2214,7 @@ ABCODE
   | ODUSERID
   | OIDCARD
   | OPCLASS
+  | OPENAPI
   | OPENERR
   | OPENSTATUS
   | OPERATION
@@ -2396,6 +2408,7 @@ ABCODE
   | QNAME
   | QUALIFIER
   | QUALLEN
+  | QUASIRENT
   | QUERY
   | QUERYPARM
   | QUERYST
@@ -2462,6 +2475,7 @@ ABCODE
   | REQTYPE
   | REQUESTSTRM
   | REQUESTTYPE
+  | REQUIRED
   | RES
   | RESCLASS
   | RESCOUNT
@@ -2713,6 +2727,7 @@ ABCODE
   | TABLENAME
   | TABLES
   | TABLESIZE
+  | TAEXECUTABLE
   | TALENGTH
   | TARGETCOUNT
   | TASK
@@ -2764,6 +2779,7 @@ ABCODE
   | THREADERROR
   | THREADLIMIT
   | THREADS
+  | THREADSAFE
   | THREADWAIT
   | THRESHOLD
   | TI
