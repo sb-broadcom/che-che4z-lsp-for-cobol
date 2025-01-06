@@ -240,6 +240,9 @@ public class CICSOptionsCheckUtility {
     optionsMap.put(
         CICSSpoolreadOptionsCheckUtility.RULE_INDEX,
         new CICSSpoolreadOptionsCheckUtility(context, errors));
+    optionsMap.put(
+        CICSSyncPointOptionsCheckUtility.RULE_INDEX,
+        new CICSSyncPointOptionsCheckUtility(context, errors));
     spOptionsMap.put(
         CICSInquireSPOptionsCheckUtility.RULE_INDEX,
         new CICSInquireSPOptionsCheckUtility(context, errors));
