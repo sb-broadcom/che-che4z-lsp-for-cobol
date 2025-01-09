@@ -38,7 +38,7 @@ allExciRules: cics_exci_link | cics_exci_delete | cics_exci_delete_container | c
               cics_exci_get_container | cics_exci_get_next_container | cics_exci_move_container |
               cics_exci_put_container | cics_exci_query_channel | cics_exci_startbrowse_container ;
 
-allSPRules: cics_discard | cics_extract_system_programming | cics_inquire_system_programming;
+allSPRules: cics_discard | cics_extract_system_programming | cics_inquire_system_programming | cics_create;
 
 // compiler options
 compilerOpts
@@ -262,6 +262,15 @@ cics_connect_process: (PROCESS | (CONVID | SESSION | PARTNER) cics_name | PROCNA
 /** CONVERTTIME */
 cics_converttime: CONVERTTIME cics_converttime_opts;
 cics_converttime_opts:(DATESTRING cics_data_area | ABSTIME cics_data_area | cics_handle_response)+;
+
+/** CREATE System Commands */
+cics_create: CREATE cics_create_opts;
+cics_create_opts:((ATOMSERVICE | BUNDLE | DB2CONN | DB2ENTRY | DB2TRAN | DOCTEMPLATE | DUMPCODE | ENQMODEL | FILE |
+                   IPCONN | JOURNALMODEL | JVMSERVER | LIBRARY | LSRPOOL | MAPSET | MQCONN | MQMONITOR | PARTITIONSET |
+                   PARTNER |  PIPELINE | PROCESSTYPE | PROFILE | PROGRAM | TCPIPSERVICE | TDQUEUE | TRANCLASS |
+                   TRANSACTION | TSMODEL | TYPETERM | URIMAP | WEBSERVICE | SESSIONS | TERMINAL | CONNECTION) cics_data_value |
+                   ATTRIBUTES cics_data_area | COMPLETE | DISCARD | ATTRLEN cics_data_value | LOG | NOLOG |
+                   LOGMESSAGE cics_cvda | cics_handle_response)+;
 
 /** DEFINE (all of them) */
 cics_define: DEFINE (cics_define_activity | cics_define_composite_event | cics_define_counter_dcounter | cics_define_input_event | cics_define_process | cics_define_timer);
@@ -1272,6 +1281,7 @@ ABCODE
   | ATTACHTIME
   | ATTLS
   | ATTRIBUTES
+  | ATTRLEN
   | AUDALARMST
   | AUDITLEVEL
   | AUDITLOG
@@ -2117,6 +2127,7 @@ ABCODE
   | NOHANDLE
   | NOINCONVERT
   | NOJBUFSP
+  | NOLOG
   | NONE
   | NONTERMREL
   | NONVAL
@@ -2223,16 +2234,17 @@ ABCODE
   | PA1
   | PA2
   | PA3
+  | PAGE_COUNTER
   | PAGEHT
   | PAGENUM
   | PAGESTATUS
   | PAGEWD
-  | PAGE_COUNTER
   | PAGING
   | PARAMGR
   | PARSE
   | PARTCLASS
   | PARTCOUNT
+  | PARTITIONSET
   | PARTITIONSST
   | PARTN
   | PARTNER
@@ -2559,6 +2571,7 @@ ABCODE
   | SESSBUSY
   | SESSION
   | SESSIONERR
+  | SESSIONS
   | SESSIONTYPE
   | SESSTOKEN
   | SET
@@ -2777,6 +2790,7 @@ ABCODE
   | TRANMGR
   | TRANPRIORITY
   | TRANSACTION
+  | TRANSCLASS
   | TRANSFORM
   | TRANSID
   | TRANSIDERR
@@ -2804,6 +2818,7 @@ ABCODE
   | TYPENAMELEN
   | TYPENS
   | TYPENSLEN
+  | TYPETERM
   | UCTRANST
   | UDSASIZE
   | UE
