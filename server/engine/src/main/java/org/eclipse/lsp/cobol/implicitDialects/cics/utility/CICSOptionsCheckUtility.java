@@ -145,6 +145,9 @@ public class CICSOptionsCheckUtility {
         CICSFormatTimeOptionsCheckUtility.RULE_INDEX,
         new CICSFormatTimeOptionsCheckUtility(context, errors));
     optionsMap.put(
+        CICSHandleOptionsCheckUtility.RULE_INDEX,
+        new CICSHandleOptionsCheckUtility(context, errors));
+    optionsMap.put(
         CICSDelayOptionsCheckUtility.RULE_INDEX,
         new CICSDelayOptionsCheckUtility(context, errors));
     optionsMap.put(
